@@ -1,0 +1,206 @@
+/*@font-face {
+    font-family: 'shurjo';
+    src: url('Shurjo ANSI Regular.ttf');
+}
+
+body {
+    font-family: shurjo, 'Roboto', sans-serif;;
+}*/
+
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap');
+
+body {
+    font-family: 'Tiro Bangla', serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-family: 'Tiro Bangla', serif;
+}
+
+.main-footer .footer-content {
+    padding: 10px 0 20px;
+}
+
+.sec-title.style-two {
+    margin-bottom: 15px;
+}
+
+.banner-conference h2 {
+    font-size: 45px;
+    line-height: 50px;
+}
+
+.banner-conference .btn-box .theme-btn {
+    padding: 15px 34px;
+    line-height: 15px;
+}
+
+.btn-style-four {
+    line-height: 15px;
+}
+
+.details {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.about-section-two {
+    position: relative;
+    padding: 80px 0 80px;
+}
+
+.event-info-section {
+    position: relative;
+    padding: 40px 0 40px;
+}
+
+.banner-conference .conference-info li {
+    font-size: 15px;
+}
+
+.speakers-section-two {
+    padding: 40px 0 20px;
+    background: #f8f8f8;
+}
+
+.speaker-block-two .image-box .image img {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.banner-conference {
+    position: relative;
+    padding: 100px 0 100px;
+}
+
+.right-img {
+    height: 350px !important;
+}
+
+.page-title {
+    padding: 100px 0 70px;
+}
+
+.sec-title.style-two {
+    margin-bottom: 15px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.sec-title h2 {
+    font-size: 25px;
+}
+
+.page-title h1 {
+    font-size: 40px;
+}
+
+.header-style-two.fixed-header .outer-box .theme-btn {
+    padding-top: 15px;
+}
+
+p {
+    font-size: 16px;
+}
+
+.sec-title .title {
+    color: #ef4023;
+}
+
+.logo {
+    width: 185px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.schedule-timeline {
+    padding: 20px 70px;
+}
+
+.schedule-timeline h4 {
+    font-size: 20px;
+}
+
+.schedule-section {
+    padding: 50px 0 50px;
+}
+
+.list-style-two li {
+    margin-bottom: 5px;
+}
+
+.about-section-two {
+    position: relative;
+    padding: 80px 0 0px;
+}
+
+.gallery-section-two.style-two, .schedule-section.alternate, .schedule-section.style-two, .pricing-section {
+    padding: 0px 0 0px;
+}
+.schedule-timeline .inner-box {
+    padding-left: 75px;
+}
+.about-section-two {
+    position: relative;
+    padding: 0px 0 0px;
+}
+.about-section-two .sec-title .title {
+    font-size: 20px;
+    letter-spacing: 0px !important;
+    text-align: left;
+}
+.event-info-section .info-column .sec-title {
+    text-align: left;
+}
+.about-section-two {
+    background: #f1f1f1;
+}
+.pathok-class {
+    height: 150px;
+}
+
+@media  (max-width: 480px) {
+    .right-img {
+        height: auto;
+        margin-top: 15px;
+    }
+    .pathok-class{
+        text-align: center;
+        width: 100%;
+    }
+    .schedule-timeline {
+        padding: 5px 0px;
+    }
+    .schedule-timeline .icon-box, .schedule-block .thumbs-box {
+        position: relative;
+        margin-bottom: 10px;
+    }
+    .right-img {
+        height: auto !important;
+    }
+    .banner-conference {
+        padding: 40px 0 40px;
+    }
+    .banner-conference .content-column {
+        margin-bottom: 0px;
+    }
+    .about-section-two .content-column {
+        position: relative;
+        margin-bottom: 10px;
+        padding-top: 10px;
+    }
+    .schedule-timeline .inner-box {
+        padding-left: 40px;
+    }
+    .event-info-section .info-column .sec-title {
+        text-align: center;
+    }
+    .event-info-section .info-column {
+        margin-bottom: 0px;
+    }
+}
+
