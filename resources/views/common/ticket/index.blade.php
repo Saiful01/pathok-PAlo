@@ -73,7 +73,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" name="phone_number" placeholder="মোবাইল নম্বর (ইংলিশ)*"
+                                    <input type="text" name="phone_number" placeholder="মোবাইল নম্বর (১১ ডিজিট ইংরেজিতে )*"
                                            id="phone_number" required="" onchange="checkNumber()" value="{{ old('phone_number') }}">
                                 </div>
 

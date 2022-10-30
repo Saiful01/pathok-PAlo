@@ -72,6 +72,10 @@ body {
             font-family: 'Tiro Bangla', serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         h1, h2, h3, h4, h5, h6, p {
             font-family: 'Tiro Bangla', serif;
         }
@@ -363,6 +367,22 @@ body {
             }
         }
 
+        .banner-conference .conference-info li {
+            font-size: 18px;
+        }
+
+        .list-style-two li {
+            font-size: 18px;
+        }
+
+        .section2 h4 {
+            padding-top: 15px;
+        }
+
+        #location li {
+            font-size: 18px;
+        }
+
 
     </style>
 
@@ -374,9 +394,9 @@ body {
 <div class="page-wrapper">
 
     <!-- Preloader -->
-{{--<div class="preloader"></div>--}}
+    {{--<div class="preloader"></div>--}}
 
-<!-- Main Header-->
+    <!-- Main Header-->
     <header class="main-header header-style-two">
         <div class="main-box">
             <div class="auto-container clearfix">
@@ -418,7 +438,7 @@ body {
 
                         <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
-                                <li class=""><a href="/#about">ইভেন্ট </a></li>
+                                <li><a href="/#about">নিবন্ধন নিয়মাবলি </a></li>
                                 <li class=""><a href="/#schedule">অনুষ্ঠানসূচি</a></li>
                                 <li class=""><a href="https://services.prothomalo.com/anniversary/quiz/"
                                                 target="_blank">পাঠক কুইজ</a>
@@ -460,9 +480,9 @@ body {
     </header>
     <!--End Main Header -->
 
-@yield('content')
+    @yield('content')
 
-<!-- Main Footer -->
+    <!-- Main Footer -->
     <footer class="main-footer style-two">
         <div class="auto-container">
             <!-- Footer Content -->
@@ -519,5 +539,6 @@ body {
 
 <script src="/common/js/wow.js"></script>
 <script src="/common/js/script.js"></script>
+
 </body>
 </html>

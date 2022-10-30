@@ -74,12 +74,12 @@
         </section>--}}
 
     <!-- About Section Two -->
-    <section class="about-section-two">
+    <section class="about-section-two" id="about">
         <div class="{{--anim-icons--}}">
             <span class="icon icon-shape-3"></span>
         </div>
 
-        <div class="auto-container" id="about">
+        <div class="auto-container" >
             <div class="row">
                 <!-- Content Column -->
                 <div class="content-column col-lg-7 col-md-12 col-sm-12 order-2">
@@ -91,17 +91,22 @@
                         <div class="row">
                             {{-- <img src="/images/pathok.svg" class="pathok-class" />--}}
                             <div class="details">
-                               {{-- <p>
-                                    প্রথম আলোর ২৪তম প্রতিষ্ঠাবার্ষিকী উপলক্ষে পাঠকদের সঙ্গে কর্মীদের সরাসরি অভিজ্ঞতা
-                                    বিনিময়ের জন্য এই আয়োজন।
-                                </p>--}}
+                                {{-- <p>
+                                     প্রথম আলোর ২৪তম প্রতিষ্ঠাবার্ষিকী উপলক্ষে পাঠকদের সঙ্গে কর্মীদের সরাসরি অভিজ্ঞতা
+                                     বিনিময়ের জন্য এই আয়োজন।
+                                 </p>--}}
 
                                 <h4> নিবন্ধন নিয়মাবলি:</h4>
                                 <ul class="list-style-two">
-                                    <li> আগত পাঠকদের অনুষ্ঠানে অংশগ্রহণের জন্য এই ওয়েবসাইটে <a href="/get-ticket">প্রাক্-নিবন্ধন</a> করতে হবে।</li>
-                                    <li>১২ বছরের কম বয়সী শিশু পিতা বা মাতার সঙ্গে প্রবেশ করতে পারবে, আলাদা নিবন্ধন করতে হবে না।</li>
+                                    <li> আগত পাঠকদের অনুষ্ঠানে অংশগ্রহণের জন্য এই ওয়েবসাইটে <a href="/get-ticket">প্রাক্-নিবন্ধন</a>
+                                        করতে হবে।
+                                    </li>
+                                    <li>১২ বছরের কম বয়সী শিশু পিতা বা মাতার সঙ্গে প্রবেশ করতে পারবে, আলাদা নিবন্ধন করতে
+                                        হবে না।
+                                    </li>
                                     <li>
-                                        নিবন্ধনের পর একটি নিবন্ধন নম্বর, একটি কিউআর কোডসহ প্রবেশপত্র পাবেন। এটির প্রিন্টআউট নিয়ে আসতে হবে অথবা মোবাইল ফোনের স্ক্রিনে দেখিয়ে প্রবেশ করতে পারবেন।
+                                        নিবন্ধনের পর {{--একটি নিবন্ধন নম্বর,--}} একটি কিউআর কোডসহ প্রবেশপত্র পাবেন। এটির
+                                        প্রিন্টআউট নিয়ে আসতে হবে অথবা মোবাইল ফোনের স্ক্রিনে দেখিয়ে প্রবেশ করতে পারবেন।
                                     </li>
                                 </ul>
 
@@ -155,11 +160,12 @@
                 <div class="info-column col-lg-6 col-md-12 col-sm-12">
                     <div class="inner-column">
                         <div class="sec-title style-two">
-                            {{--   <span class="title">ভেন্যু</span>--}}
-                            <h2>অনুষ্ঠানের স্থান, তারিখ ও সময় </h2>
+                            <span class="title">অনুষ্ঠানের স্থান, তারিখ ও সময়</span>
+                            {{--  <h2>অনুষ্ঠানের স্থান, তারিখ ও সময় </h2>--}}
                             <ul class="info-list">
 
-                                <li><span class="icon icon_pin_alt"></span> বাংলা একাডেমি প্রাঙ্গণ, ঢাকা</li>
+                                <li><span class="icon icon_pin_alt"></span>
+                                    <h2 style="font-size: 20px"> বাংলা একাডেমি প্রাঙ্গণ, ঢাকা</h2></li>
                                 <li><span class="icon icon_clock_alt"></span> ৪ নভেম্বর ২০২২, শুক্রবার সকাল ৮টা থেকে
                                     বিকেল ৫.৩০টা পর্যন্ত
                                 </li>

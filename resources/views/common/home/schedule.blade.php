@@ -5,8 +5,8 @@
     </div>
     <div class="auto-container">
         <div class="sec-title text-center style-two">
-            <span class="title">মূলমঞ্চ </span>
-            <h2>সম্ভাব্য অনুষ্ঠানসূচি</h2>
+            <span class="title"> সম্ভাব্য অনুষ্ঠানসূচি </span>
+            <h2>মূলমঞ্চ</h2>
         </div>
 
         <div class="col-md-8 mx-auto">
@@ -118,11 +118,44 @@
         </div>
 
         <div class="sec-title text-center style-two">
-            <span class="title">পাঁচমিশালি মঞ্চ </span>
-            <h2>অনুষ্ঠানসূচি</h2>
+          {{--  <span class="title">অনুষ্ঠানসূচি </span>--}}
+            <h2> পাঁচমিশালি মঞ্চ</h2>
+        </div>
+        <div class="col-md-8 mx-auto section2">
+
+
+            <!-- Schedule Timeline -->
+            <div class="schedule-timeline">
+                <div class="inner-box">
+                    <div class="icon-box"><span class="icon icon_clock_alt"></span></div>
+
+                    <h4>তারকা দম্পতিদের নিয়ে আড্ডা</h4>
+                </div>
+            </div>
+
+            <!-- Schedule Timeline -->
+            <div class="schedule-timeline">
+                <div class="inner-box">
+                    <div class="icon-box"><span class="icon icon_clock_alt"></span></div>
+
+                    <h4>জনপ্রিয় মডেলদের নিয়ে একটি ক্যাটওয়াক</h4>
+                </div>
+            </div>
+
+            <!-- Schedule Timeline -->
+            <div class="schedule-timeline">
+                <div class="inner-box">
+                    <div class="icon-box"><span class="icon icon_clock_alt"></span></div>
+
+                    <h4>
+                        জুম্বা নাচ
+                    </h4>
+                </div>
+            </div>
+
         </div>
 
-        <div class="col-md-4 mx-auto">
+      {{--  <div class="col-md-4 mx-auto">
 
 
             <ul class="list-style-two">
@@ -133,6 +166,6 @@
 
 
             </ul>
-        </div>
+        </div>--}}
     </div>
 </section>
