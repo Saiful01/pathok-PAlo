@@ -151,9 +151,9 @@
     </style>
 
     @if($guest->ticket==null)
-       {{-- <div id="loading">
+        <div id="loading">
             <div class="loader"></div>
-        </div>--}}
+        </div>
     @endif
 
     <section class="error-section">
@@ -176,41 +176,32 @@
 
                 <div class="row">
                     <div class="col-md-9 mx-auto">
-                        {{-- <p class="mt-2">অনুষ্ঠানস্থলে প্রবেশের সময় ই–কার্ডটির প্রিন্ট আউট নিয়ে আসতে হবে অথবা মোবাইল ফোনের স্ক্রিনে দেখিয়ে
-                             প্রবেশ করতে হবে। ই–কার্ডটি আপনার ইমেইলে পাঠিয়ে দেওয়া হয়েছে
+                       {{-- <p class="mt-2">অনুষ্ঠানস্থলে প্রবেশের সময় ই–কার্ডটির প্রিন্ট আউট নিয়ে আসতে হবে অথবা মোবাইল ফোনের স্ক্রিনে দেখিয়ে
+                            প্রবেশ করতে হবে। ই–কার্ডটি আপনার ইমেইলে পাঠিয়ে দেওয়া হয়েছে
 
-                             <?PHP
+                            <?PHP
 
-                             $ticket = "/ticket/" . $guest->qr_code . ".jpeg";
-                             ?>
-                             <span id="download_ticket"> অথবা এখান থেকে <a
-                                     href="{{$ticket}}" download id="download"><span
-                                         class="icon icon_download"></span> ডাউনলোড</a> করতে
-                             পারেন</span>
-
-
-                             ।</p>--}}
+                            $ticket = "/ticket/" . $guest->qr_code . ".jpeg";
+                            ?>
+                            <span id="download_ticket"> অথবা এখান থেকে <a
+                                    href="{{$ticket}}" download id="download"><span
+                                        class="icon icon_download"></span> ডাউনলোড</a> করতে
+                            পারেন</span>
 
 
-                        {{--    <p class="mt-2">অনুষ্ঠানস্থলে প্রবেশের সময় কিউআর কোডসহ প্রবেশপত্রটি প্রিন্ট আউট নিয়ে আসতে হবে অথবা মোবাইল ফোনের স্ক্রিনে দেখিয়ে প্রবেশ করতে হবে।
-
-                                <br>
-                                প্রবেশপত্রটি
-                                <?PHP
-                                $ticket = "/ticket/" . $guest->qr_code . ".jpeg";
-                                ?>
-                                <span id="download_ticket"> এখান থেকে <a
-                                        href="{{$ticket}}" download id="download"><span
-                                            class="icon icon_download"></span> ডাউনলোড</a> করুন</span>।</p>--}}
+                            ।</p>--}}
 
 
-                        <p>
-                            অনুষ্ঠানস্থলে প্রবেশের সময় কিউআর কোডসহ প্রবেশপত্রটি প্রিন্ট আউট নিয়ে আসতে হবে অথবা মোবাইল
-                            ফোনের স্ক্রিনে দেখিয়ে প্রবেশ করতে হবে।
-                            প্রবেশপত্রটি এখান থেকে <span
-                                class="icon icon_download"></span> <a href="#" onclick="downloadTicket()">ডাউনলোড</a>
-                            করুন।
-                        </p>
+                        <p class="mt-2">অনুষ্ঠানস্থলে প্রবেশের সময় কিউআর কোডসহ প্রবেশপত্রটি প্রিন্ট আউট নিয়ে আসতে হবে অথবা মোবাইল ফোনের স্ক্রিনে দেখিয়ে প্রবেশ করতে হবে।
+
+                            <br>
+                            প্রবেশপত্রটি
+                            <?PHP
+                            $ticket = "/ticket/" . $guest->qr_code . ".jpeg";
+                            ?>
+                            <span id="download_ticket"> এখান থেকে <a
+                                    href="{{$ticket}}" download id="download"><span
+                                        class="icon icon_download"></span> ডাউনলোড</a> করুন</span>।</p>
                     </div>
                 </div>
 
@@ -301,54 +292,11 @@
         </div>
     </section>
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-
-
-    <script>
-
-        function downloadTicket() {
-
-            html2canvas(document.querySelector('#ticket_area')).then(function (canvas) {
-
-                saveAs(canvas.toDataURL(), 'invitation.png');
-            });
-        }
-
-
-        function saveAs(uri, filename) {
-
-            var link = document.createElement('a');
-
-            if (typeof link.download === 'string') {
-
-                link.href = uri;
-                link.download = filename;
-
-                //Firefox requires the link to be in the body
-                document.body.appendChild(link);
-
-                //simulate click
-                link.click();
-
-                //remove the link when done
-                document.body.removeChild(link);
-
-            } else {
-
-                window.open(uri);
-
-            }
-        }
-    </script>
-
-
-
     <script>
 
         function doCapture() {
-            console.log("ffff")
             window.scrollTo(0, 0);
             html2canvas(document.getElementById("ticket_area")).then(function (canvas) {
 
@@ -360,9 +308,7 @@
                 ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
                 // Sending image data to server
-                console.log("&qr_code={{$qr_code}}" + "&name='{{$guest->name}}'" + "&email={{$guest->email}}")
-                ajax.send("image=" + canvas.toDataURL("image/jpeg", 0.9) + "&qr_code={{$qr_code}}" + "&name='{{$guest->name}}'" + "&email={{$guest->email}}");
-
+                ajax.send("image=" + canvas.toDataURL("image/jpeg", 0.9) + "&qr_code={{$qr_code}}" + "&name={{$guest->name}}" + "&email={{$guest->email}}");
 
                 // Receiving response from server
                 // This function will be called multiple times
@@ -372,13 +318,10 @@
 
                         // Displaying response from server
                         //console.log(this.responseText);
-                        //document.getElementById("loading").style.display = "none";
+                        document.getElementById("loading").style.display = "none";
                         console.log("Try to Hide");
                         //sendMail('{{$qr_code}}');
                         console.log("Generte");
-                    } else {
-                        console.log("error");
-                        //document.getElementById("loading").style.display = "none";
                     }
                 };
             });
@@ -386,7 +329,7 @@
 
         function sendMail(qr_code) {
             console.log("/send-ticket?qr_code=" + qr_code);
-            //document.getElementById("loading").style.display = "none";
+            document.getElementById("loading").style.display = "none";
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open("GET", "/send-ticket?qr_code=" + qr_code, false);
             xmlHttp.send(null);
@@ -407,7 +350,7 @@
         /* window.onload = (event) => {
 
              setTimeout(function(){
-                 //document.getElementById("loading").style.display = "none";
+                 document.getElementById("loading").style.display = "none";
              },10000);
          };
  */

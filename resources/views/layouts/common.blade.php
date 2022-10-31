@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-    <meta property="og:image" content="/images/1.jpeg"/>
+    <meta property="og:image" content="https://pathok.prothomalo.com/images/pathok_fb.jpeg"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="628"/>
     <meta property="og:title" content="প্রথম আলো পাঠক উৎসব">
