@@ -79,7 +79,7 @@
             <span class="icon icon-shape-3"></span>
         </div>
 
-        <div class="auto-container" >
+        <div class="auto-container">
             <div class="row">
                 <!-- Content Column -->
                 <div class="content-column col-lg-7 col-md-12 col-sm-12 order-2">
@@ -118,7 +118,7 @@
                 <div class="content-column col-lg-5 col-md-12 col-sm-12 order-2">
                     <div class="inner-column">
                         <div class="sec-title style-two">
-                            <span class="title">অনুষ্ঠান প্রাঙ্গণে যা যা থাকবে</span>
+                            <span class="title"> উৎসবে আগতদের জন্য উপহার</span>
                             {{-- <h2>প্রথম আলোর ২৪তম প্রতিষ্ঠাবার্ষিকী উপলক্ষে পাঠক উৎসব</h2>--}}
                         </div>
 
@@ -127,17 +127,22 @@
                             <div class="details">
                                 <ul class="list-style-two">
 
-                                    <li>গোল্লাছুট কর্নার</li>
-                                    <li>ম্যাগাজিন জোন</li>
-                                    <li>ফিচার জোন</li>
-                                    <li>সম্পাদকীয়, বার্তা ও ক্রীড়াকক্ষ</li>
-                                    <li>ডিজিটাল জোন</li>
-                                    <li>বন্ধুসভা কর্নার</li>
-                                    <li>প্রথম আলো ট্রাস্ট</li>
-                                    <li>চরকির প্রদর্শনী</li>
-                                    <li>প্রথমা প্রকাশন</li>
-                                    <li>মূলমঞ্চ</li>
-                                    <li>পাঁচমিশালিমঞ্চ</li>
+                                    {{--  <li>গোল্লাছুট কর্নার</li>
+                                      <li>ম্যাগাজিন জোন</li>
+                                      <li>ফিচার জোন</li>
+                                      <li>সম্পাদকীয়, বার্তা ও ক্রীড়াকক্ষ</li>
+                                      <li>ডিজিটাল জোন</li>
+                                      <li>বন্ধুসভা কর্নার</li>
+                                      <li>প্রথম আলো ট্রাস্ট</li>
+                                      <li>চরকির প্রদর্শনী</li>
+                                      <li>প্রথমা প্রকাশন</li>
+                                      <li>মূলমঞ্চ</li>
+                                      <li>পাঁচমিশালিমঞ্চ</li>
+  --}}
+
+
+                                    <li> প্রথম আলো ই-পেপারের সাবস্ক্রিপশন</li>
+                                    <li> চরকির সাবস্ক্রিপশন</li>
 
 
                                 </ul>
@@ -152,6 +157,7 @@
     <!--End About Section -->
 
     @include('common.home.schedule')
+    @include('common.home.picture-quiz')
     <!-- Event Info Section -->
     <section class="event-info-section" id="location">
         <div class="auto-container">
@@ -179,7 +185,7 @@
 
                 <!-- Map Column -->
                 <div class="map-column col-lg-6 col-md-12 col-sm-12">
-                    <div class="map-outer wow fadeIn">
+                    <div class="">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.4866008191398!2d90.39527945120133!3d23.730021195394457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8e8df10a013%3A0x3b53945df2e624cb!2sBangla%20Academy!5e0!3m2!1sen!2sbd!4v1666555755829!5m2!1sen!2sbd"
                             width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"

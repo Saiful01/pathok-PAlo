@@ -1,4 +1,42 @@
-<section class="schedule-section style-two" id="schedule">
+<section class="schedule-section style-two bg-white" id="schedule">
+    <div class="anim-icons">
+        <span class="icon icon-shape-2 wow zoomIn animated" data-wow-delay="600ms"
+              style="visibility: visible; animation-delay: 600ms; animation-name: zoomIn;"></span>
+    </div>
+    <div class="auto-container">
+        <div class="sec-title text-center style-two">
+            <span class="title"> অনুষ্ঠানসূচি </span>
+            {{--<span class="title"> ২৪ তম প্রতিষ্ঠাবার্ষিকীর পাঠক উৎসবে থাকছে</span>--}}
+            <h2>২৪ তম প্রতিষ্ঠাবার্ষিকীর পাঠক উৎসবে থাকছে</h2>
+        </div>
+
+        <div class="col-md-6 mx-auto">
+
+            <div class="row">
+                <div class="details">
+                    <ul class="list-style-two">
+
+                        <li> প্রথম আলো সম্পাদক ও লেখকদের মুখোমুখি</li>
+                        <li> জনপ্রিয় শিল্পীদের গান</li>
+                        <li> চলচ্চিত্র তারকাদের নিয়ে আয়োজন</li>
+                        <li> 'কিশোর আলো'য় কুইজ, গেমসহ নানা আয়োজন</li>
+                        <li> 'বিজ্ঞানচিন্তা'য় বিজ্ঞানের পরীক্ষা, দাবা, কুইজ ও গেমস</li>
+                        <li> শিশুদের চিত্রাঙ্কন প্রতিযোগিতা ও গোল্লাছুট কর্নার</li>
+                        <li> 'নকশা'য় মেহেদি ও চোখের সাজ,'ছুটির দিনে'-তে পাঠক কুইজ, অধুনা'য় মনোবিদ ও চিকিৎসকের পরামর্শ
+                            এবং জুম্বা ড্যান্স,'স্বপ্ন নিয়ে'-তে স্বপ্নলেখাসহ ফিচারের নানা আয়োজ
+                        </li>
+                        <li> বইমেলা ও ফুড জোন</li>
+                        <li> চরকির চলচ্চিত্র প্রদর্শনী ও তারকা সমাবেশ</li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{--<section class="schedule-section style-two" id="schedule">
     <div class="anim-icons">
         <span class="icon icon-shape-2 wow zoomIn animated" data-wow-delay="600ms"
               style="visibility: visible; animation-delay: 600ms; animation-name: zoomIn;"></span>
@@ -118,7 +156,7 @@
         </div>
 
         <div class="sec-title text-center style-two">
-          {{--  <span class="title">অনুষ্ঠানসূচি </span>--}}
+          --}}{{--  <span class="title">অনুষ্ঠানসূচি </span>--}}{{--
             <h2> পাঁচমিশালি মঞ্চ</h2>
         </div>
         <div class="col-md-8 mx-auto section2">
@@ -155,7 +193,7 @@
 
         </div>
 
-      {{--  <div class="col-md-4 mx-auto">
+      --}}{{--  <div class="col-md-4 mx-auto">
 
 
             <ul class="list-style-two">
@@ -166,6 +204,6 @@
 
 
             </ul>
-        </div>--}}
+        </div>--}}{{--
     </div>
-</section>
+</section>--}}

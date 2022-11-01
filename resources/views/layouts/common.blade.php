@@ -202,7 +202,7 @@ body {
         }
 
         .gallery-section-two.style-two, .schedule-section.alternate, .schedule-section.style-two, .pricing-section {
-            padding: 0px 0 0px;
+            padding: 0px 0 5px;
         }
 
         .schedule-timeline .inner-box {
@@ -289,6 +289,20 @@ body {
             padding-top: 115px;
             font-size: 18px;
             line-height: 1.5;
+        }
+
+        #picture .title {
+            letter-spacing: 0px;
+        }
+        #picture{
+            padding: 1px 1px 15px 0px;
+        }
+        p{
+            font-size: 18px;
+            color: #3f4161;
+        }
+        .text-primary{
+            color:#ef4023 !important;
         }
 
         @media (max-width: 480px) {
@@ -440,8 +454,8 @@ body {
                             <ul class="navigation clearfix">
                                 <li><a href="/#about">নিবন্ধন নিয়মাবলি </a></li>
                                 <li class=""><a href="/#schedule">অনুষ্ঠানসূচি</a></li>
-                                <li class=""><a href="https://services.prothomalo.com/anniversary/quiz/"
-                                                target="_blank">পাঠক কুইজ</a>
+                              {{--  <li class=""><a href="https://services.prothomalo.com/anniversary/quiz/"
+                                                target="_blank">পাঠক কুইজ</a>--}}
                                 </li>
                                 <li class=""><a href="https://www.prothomalo.com/" target="_blank">প্রথম আলো</a></li>
 
