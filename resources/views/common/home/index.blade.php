@@ -12,6 +12,8 @@
 
         <!-- Parallax Icons -->
         <div class="parallax-scene parallax-scene-1 anim-icons">
+
+
             <span data-depth="0.20" class="parallax-layer icon icon-dots-2"></span>
             <span data-depth="0.80" class="parallax-layer icon icon-speaker-3"></span>
             <span data-depth="0.30" class="parallax-layer icon twist-line-4"></span>
