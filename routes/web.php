@@ -62,12 +62,13 @@ Route::get('/', [Controller::class, 'home']);
 Route::get('/get-ticket', [Controller::class, 'getTicket']);
 Route::any('/get-ticket/save', [Controller::class, 'ticketSave']);
 Route::any('/success/{qr_code}', [Controller::class, 'success']);
+Route::any('/profile/{qr_code}', [Controller::class, 'profile']);
 
 Route::any('/download', [Controller::class, 'download']);
 Route::any('/ticket-download', [Controller::class, 'ticketDownload']);
 
-Route::get('/profile/{id}', [Controller::class, 'profileDetails']);
-Route::get('/profile/{id}/{name}', [Controller::class, 'profileDetailsName']);
+/*Route::get('/profile/{id}', [Controller::class, 'profileDetails']);
+Route::get('/profile/{id}/{name}', [Controller::class, 'profileDetailsName']);*/
 
 
 Route::post('/profile/update', [Controller::class, 'profileUpdate']);

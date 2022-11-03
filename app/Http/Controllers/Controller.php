@@ -45,6 +45,19 @@ class Controller extends BaseController
             ->with("qr_code", $qr_code)
             ->with("guest", $event_guest);
     }
+    public function profile($qr_code)
+    {
+
+
+        $event_guest = EventGuest::leftJoin("guests", "guests.id", "=", "event_guests.guest_id")->where('qr_code', $qr_code)->first();
+        if (is_null($event_guest)) {
+            return Redirect::to("/");
+        }
+
+        return view("common.profile.index")
+            ->with("qr_code", $qr_code)
+            ->with("guest", $event_guest);
+    }
 
     public function download()
     {
