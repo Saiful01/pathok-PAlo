@@ -337,8 +337,10 @@
                 <div class="info-column col-lg-8 mx-auto col-md-12 col-sm-12">
                     <div class="inner-column">
                         <div class="sec-title style-two">
-                              <h2>ভি.আর এক্সপেরিয়েন্স নিতে এই <a href="https://pathokutsob.pro/" target="_blank">লিংকে</a>  যান </h2>
-                            <span class="title"></span>
+                              <h2> প্রতিষ্ঠাবার্ষিকী উদ্‌যাপনের অংশ হিসেবে ফেসবুকে স্বনির্ধারিত পোস্ট তৈরি করতে এখানে <a href="https://pathokutsob.pro/" target="_blank">ক্লিক</a>   করুন</h2>
+
+
+
 
                         </div>
                     </div>
