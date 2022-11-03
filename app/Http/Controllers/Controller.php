@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class Controller extends BaseController
 {
@@ -294,8 +295,12 @@ class Controller extends BaseController
 
     public function test()
     {
-
         return view("test");
+    }
+
+    public function qrCodeGenerate($qr_code)
+    {
+        return view("qr_code")->with("qr_code",$qr_code);
     }
 
     public function saveCapture(Request $request)

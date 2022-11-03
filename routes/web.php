@@ -100,6 +100,11 @@ Route::get('/clear', function () {
 
 /*Route::any('/ticket', [ExcelController::class, 'ticket']);*/
 Route::any('/test', [Controller::class, 'test']);
+Route::any('/qr-generate/{qr_code}', [Controller::class, 'qrCodeGenerate']);
+
+
+
+
 Route::any('/save-capture', [Controller::class, 'saveCapture']);
 Route::any('/send-ticket', [Controller::class, 'sendTicket']);
 
