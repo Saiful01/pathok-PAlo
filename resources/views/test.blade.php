@@ -15,13 +15,9 @@
 
 </head>
 <body>
+{{QrCode::size(500)->format("png")->generate('Welcome to Makitweb', public_path('qr/1.png') )}}
 
-<div class="" id="capture" style="background: red; color: #ffffff; width: 200px;height: 500px">
-    Hello World !
-</div>
-
-
-<button onclick="doCapture();">Capture</button>
+<a href="{{ asset('qr/1.png') }}" download>Download</a>
 
 
 <script>
