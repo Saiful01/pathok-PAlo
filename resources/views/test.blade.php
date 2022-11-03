@@ -15,15 +15,11 @@
 
 </head>
 <body>
-
-<div class="" id="capture" style="background: red; color: #ffffff; width: 200px;height: 500px">
-    Hello World !
-</div>
+{{QrCode::size(500)->generate('Welcome to Makitweb', public_path('qr/1.svg') )}}
 
 
-<button onclick="doCapture();">Capture</button>
 
-
+<a href="{{ asset('qr/1.svg') }}" download>Download</a>
 <script>
     function doCapture() {
         window.scrollTo(0, 0);
