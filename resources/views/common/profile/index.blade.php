@@ -4,8 +4,8 @@
         #new-profile {
             margin-top: 100px;
         }
-        .chorki-logo {
-            width: 150px;
+        .download-app .client-block .content {
+            padding-left: 0px;
         }
     </style>
 
@@ -46,7 +46,7 @@
     </section>
     <!--End About Section -->
 
-    <section class="sponsors-section">
+    <section class="sponsors-section ">
         <div class="auto-container">
             <div class="row">
                 <!-- Client Block -->
@@ -86,7 +86,7 @@
     </section>
     <!-- Event Info Section -->
 
-    <section class="sponsors-section">
+    <section class="sponsors-section download-app">
         <div class="auto-container">
             <div class="row">
                 <!-- Client Block -->
@@ -110,8 +110,8 @@
                      style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp;">
                     <div class="inner-box">
                         <div class="content">
-                            <div class="chorki-logo">
-                                <img src="/images/chorki.png">
+                            <div class="image-logo">
+                                <img class="chorki-logo" src="/images/chorki.png">
                             </div>
 
                             <div class="btn-box">

@@ -25,10 +25,10 @@ class AdminController extends Controller
             ->with("mail_sent",$mail_sent);
     }
 
-    public function profile()
+  /*  public function profile()
     {
         return view("admin.setting.profile");
-    }
+    }*/
 
     public function profileUpdate(Request $request)
     {

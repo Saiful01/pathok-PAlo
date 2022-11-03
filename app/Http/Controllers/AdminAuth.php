@@ -16,7 +16,7 @@ class AdminAuth extends Controller
     {
         if ($request->isMethod("post")) {
 
-            //return $request->all();
+           // return $request->all();
             if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']], true)) {
                 return Redirect::to('/dashboard');
             } else {
