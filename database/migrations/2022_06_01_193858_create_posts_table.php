@@ -15,19 +15,13 @@ return new class extends Migration {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('post_title');
-            $table->string('slug')->nullable();
-            $table->longText('post_details');
+            $table->longText('post_details')->nullable();
             $table->string('featured_image')->nullable();
-            $table->string('tags')->nullable();
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('sub_category_id')->nullable();
-            $table->unsignedInteger('author_id');
+            $table->string('link')->nullable();
             $table->integer('publish_status')->default(1);  //Publish=1, Unpublish=0; Draft=2, Scheduled=3
-            $table->boolean('pin_post')->default(false);
-            $table->dateTime('schedule_time')->nullable();
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
-            $table->foreign('category_id')->references("id")->on("categories");
-/*            $table->foreign('author_id')->references("id")->on("users");*/
+
         });
     }
 

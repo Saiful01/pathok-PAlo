@@ -42,7 +42,7 @@
                     </li>
 
                     <li class="nav-main-heading">Extras</li>
-                    <li class="nav-main-item">
+                  {{--  <li class="nav-main-item">
                         <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true"
                            aria-expanded="false" href="#">
                             <i class="nav-main-link-icon fa fa-blog"></i>
@@ -65,8 +65,26 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li>--}}
 
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="/posts">
+                            <i class="nav-main-link-icon fa fa-copy"></i>
+                            <span class="nav-main-link-name">Posts</span>
+                        </a>
+                    </li>
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="/videos">
+                            <i class="nav-main-link-icon fa fa-copy"></i>
+                            <span class="nav-main-link-name">Videos</span>
+                        </a>
+                    </li>
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="/galleries">
+                            <i class="nav-main-link-icon fa fa-copy"></i>
+                            <span class="nav-main-link-name">Images</span>
+                        </a>
+                    </li>
                     <li class="nav-main-item">
                         <a class="nav-main-link" href="/pages">
                             <i class="nav-main-link-icon fa fa-copy"></i>

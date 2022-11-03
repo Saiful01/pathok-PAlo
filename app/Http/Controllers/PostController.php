@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -47,6 +48,8 @@ class PostController extends Controller
         // return $request->all();
         $validator = Validator::make($request->all(), [
             'post_title' => 'required',
+            'link' => 'required',
+            'image' => 'required',
             /* 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',*/
         ]);
 
@@ -65,17 +68,13 @@ class PostController extends Controller
             $image_file = '/uploads/post/' . $image_name;
         }
 
-        if ($request['pin_post'] == null) {
-            $request['pin_post'] = false;
-        }
+
         $data = [
             'post_title' => $request['post_title'],
-            'category_id' => $request['category_id'],
-            'pin_post' => $request['pin_post'],
-            'tags' => $request['tags'],
-            'author_id' => Auth::user()->id,
-            'post_details' => getSummernoteFormatter($request['post_details']),
+            'link' => $request['link'],
             'featured_image' => $image_file,
+            'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now()
         ];
         try {
             Post::create($data);
@@ -130,7 +129,8 @@ class PostController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'post_title' => 'required',
-            'category_id' => 'required',
+            'link' => 'required',
+            'image' => 'required',
             /* 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',*/
         ]);
 
@@ -149,17 +149,11 @@ class PostController extends Controller
             $image_file = '/uploads/post/' . $image_name;
         }
 
-        if ($request['pin_post'] == null) {
-            $request['pin_post'] = false;
-        }
+
        $data = [
             'post_title' => $request['post_title'],
-            'category_id' => $request['category_id'],
-            'pin_post' => $request['pin_post'],
-            'tags' => $request['tags'],
-            'author_id' => Auth::user()->id,
-            'post_details' => getSummernoteFormatter($request['post_details']),
-            'featured_image' => $image_file,
+            'link' => $request['link'],
+           'featured_image' => $image_file,
         ];
         try {
             Post::where('id', $post->id)->update($data);

@@ -4,18 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\EventGuest;
 use App\Models\Guest;
+use App\Models\GuestCoupon;
+use App\Models\Image;
 use App\Models\Post;
+use App\Models\Video;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class Controller extends BaseController
 {
@@ -46,18 +50,48 @@ class Controller extends BaseController
             ->with("qr_code", $qr_code)
             ->with("guest", $event_guest);
     }
+
     public function profile($qr_code)
     {
 
 
-        $event_guest = EventGuest::leftJoin("guests", "guests.id", "=", "event_guests.guest_id")->where('qr_code', $qr_code)->first();
+        $event_guest = EventGuest::where('qr_code', $qr_code)
+            ->leftJoin("guests", 'guests.id', "=", "event_guests.guest_id")
+            ->select(
+                'event_guests.*',
+                'guests.picture',
+                'guests.name',
+                'guests.address',
+                'guests.email',
+                'guests.phone_number',
+                'guests.id as guest_id',
+            )->first();
         if (is_null($event_guest)) {
             return Redirect::to("/");
         }
 
+         $coupon = GuestCoupon::where('guest_id', $event_guest->guest_id)->first();
+        if(is_null($coupon)){
+            $prothomalo_coupon = "";
+            $chorki_coupon = "";
+        }else{
+            $prothomalo_coupon = $coupon->chorki_coupon;
+            $chorki_coupon = $coupon->prothomalo_coupon;
+        }
+
+
+
+        $videos = Video::orderBy("created_at", "DESC")->get();
+        $images = Image::orderBy('created_at', "DESC")->get();
+        $posts = Post::orderBy('created_at', "DESC")->get();
         return view("common.profile.index")
             ->with("qr_code", $qr_code)
-            ->with("guest", $event_guest);
+            ->with("guest", $event_guest)
+            ->with("prothomalo_coupon", $prothomalo_coupon)
+            ->with("chorki_coupon", $chorki_coupon)
+            ->with("videos", $videos)
+            ->with("images", $images)
+            ->with("posts", $posts);
     }
 
     public function download()
@@ -157,7 +191,7 @@ class Controller extends BaseController
                     'qr_code' => $qr_code,
                 ]);
                 //Alert::success("Success", "আপনার আবেদন গ্রহণ করা হয়েছে");
-                smsSend($request['phone_number'], $request['name']);
+                smsSendOld($request['phone_number'], $request['name']);
 
 
             } catch (\Exception $exception) {
@@ -295,12 +329,62 @@ class Controller extends BaseController
 
     public function test()
     {
+
+        return paloMessage("01717849968", "Test Message");
+
+
+        return sendSms("01717849968", "পাঠক উৎসবে আপনাকে স্বাগত।");
+
+
+        $url = $url = URL::to('/');
+        $name = "Motiur Rahaman";
+        $phone_number = "01717849968";
+
+        $message = "প্রিয়" . $name . ", পাঠক উৎসবে আপনাকে স্বাগত। আপনার উপহার পেতে ক্লিক করুন:" . $url;
+        $message = "Test";
+        $user = "PROTHOMALOOTP";
+        $pass = "69A966o>";
+        $sid = "PROTHOMALOOTPBNG";
+        $sms_url = 'http://sms.sslwireless.com/pushapi/dynamic/server.php';
+
+
+        /* return [
+             'user' => $user,
+             'pass' => $pass,
+             'sms[0][0]' => $phone_number,
+             'sms[0][1]' => urlencode($message),
+             'sms[0][2]' => rand(1, 7885222),
+             'sid' => $sid,
+         ];*/
+
+
+        try {
+            return $response = Http::post($sms_url, [
+                'user' => $user,
+                'pass' => $pass,
+                'sms[0][0]' => $phone_number,
+                'sms[0][1]' => urlencode($message),
+                'sms[0][2]' => rand(1, 7885222),
+                'sid' => $sid,
+            ]);
+        } catch (\Exception $exception) {
+            return $exception->getMessage();
+        }
+
+        /* $param= user=$user
+             &pass=$pass
+             &sms[0][0]=$phonenum
+                 &sms[0][1]=urlencode($content)
+                     &sms[0][2]=$refere_id
+                     &sid=$sid*/
+
+
         return view("test");
     }
 
     public function qrCodeGenerate($qr_code)
     {
-        return view("qr_code")->with("qr_code",$qr_code);
+        return view("qr_code")->with("qr_code", $qr_code);
     }
 
     public function saveCapture(Request $request)

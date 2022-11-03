@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\EventGuest;
+use App\Models\GuestCoupon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\URL;
 
 class ApiController extends Controller
 {
@@ -30,13 +33,14 @@ class ApiController extends Controller
                 return "Exist";
             }
 
-
             return [
                 'status_code' => 201,
                 'message' => "Invalid invitation",
                 'guest' => $request->all(),
             ];
         } else {
+
+
             if ($is_exist->checkin_status == true) {
                 EventGuest::where('qr_code', $request['qr_code'])->update([
                     'checkin_count' => $is_exist->checkin_count + 1,
@@ -53,7 +57,22 @@ class ApiController extends Controller
                 ]);
                 $phone_number = $is_exist->phone_number;
                 $name = $is_exist->name;
-                smsSend($phone_number, $name);
+
+                $url = URL::to('/') . "/profile/" . $is_exist->qr_code;
+                $message = "প্রিয় " . $name . ", পাঠক উৎসবে আপনাকে স্বাগত। আপনার উপহার পেতে ক্লিক করুন: " . $url;
+                //sendSms($phone_number, $message);
+                paloMessage($phone_number, $message);
+                //Insert Coupon
+                try {
+                    $guest_coupon = GuestCoupon::whereNull("guest_id")->orderBy("created_at", "DESC")->first();
+                    GuestCoupon::where("id", $guest_coupon->id)->update([
+                        'guest_id' => $is_exist->guest_id,
+                        'is_used' => true,
+                    ]);
+                } catch (\Exception $exception) {
+                    return $exception->getMessage();
+                }
+
                 return [
                     'status_code' => 200,
                     'message' => "Successfully Checked in",
@@ -97,6 +116,43 @@ class ApiController extends Controller
             'guest_list' => $result
         ];
     }
+
+
+    public function smsSend2($phone_number, $name, $url)
+    {
+
+        $sms = "প্রিয়" . $name . ", পাঠক উৎসবে আপনাকে স্বাগত। আপনার উপহার পেতে ক্লিক করুন:" . $url;
+        try {
+
+            $sms_url = 'https://smsc.ekshop.gov.bd/externalApi?passkey=aswdfawkejfhwekjhr329923875492&smsText=' . $sms . '&client=future_track&number=' . $phone_number;
+            return $response = Http::post($sms_url, []);
+
+        } catch (\Exception $exception) {
+            return $exception->getMessage();
+        }
+    }
+
+    /* public function smsSend($phone_number, $name, $url)
+     {
+
+         $message = "প্রিয়" . $name . ", পাঠক উৎসবে আপনাকে স্বাগত। আপনার উপহার পেতে ক্লিক করুন:" . $url;
+         $user = "PROTHOMALOOTP";
+         $pass = "69A966o>";
+         $sid = "PROTHOMALOOTPBNG";
+         $sms_url = 'http://sms.sslwireless.com/pushapi/dynamic/server.php';
+         try {
+             return $response = Http::post($sms_url, [
+                 'user' => 'i40exusu-ffpzd2bs-6fr7ium3-ksoow1r4-v9g4w0mu',
+                 'pass' => 'PROTHOMALOOTP',
+                 'sms[0][0]' => $phone_number,
+                 'sms[0][1]' => urlencode($message),
+                 'sms[0][2]' => rand(1, 7885222),
+                 'sid' => $sid,
+             ]);
+         } catch (\Exception $exception) {
+             return $exception->getMessage();
+         }
+     }*/
 
 
 }

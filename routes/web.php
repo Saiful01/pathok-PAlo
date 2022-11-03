@@ -6,9 +6,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EventGuestController;
 use App\Http\Controllers\ExcelController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +35,8 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('/dashboard', [AdminController::class, 'dashboard']);
     Route::resource('/posts', PostController::class);
+    Route::resource('/videos', VideoController::class);
+    Route::resource('/galleries', ImageController::class);
     Route::resource('/categories', CategoryController::class);
     Route::resource('/users', UserController::class);
 
@@ -101,8 +105,6 @@ Route::get('/clear', function () {
 /*Route::any('/ticket', [ExcelController::class, 'ticket']);*/
 Route::any('/test', [Controller::class, 'test']);
 Route::any('/qr-generate/{qr_code}', [Controller::class, 'qrCodeGenerate']);
-
-
 
 
 Route::any('/save-capture', [Controller::class, 'saveCapture']);

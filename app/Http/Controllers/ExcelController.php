@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\UsersExport;
 use App\Imports\UsersImport;
+use App\Models\GuestCoupon;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Browsershot\Browsershot;
@@ -18,16 +19,65 @@ class ExcelController extends Controller
     public function import()
     {
 
-        $rows = Excel::toArray(new UsersImport, 'users.xlsx');
-        return response()->json(["rows" => $rows]);
 
-        return $rows = Excel::toArray(new UsersImport, 'users.xlsx');
-        //return $rows = Excel::toArray(new UsersImport, $request->file('sampledata'));
+        /*$data = Excel::toArray(new UsersImport, 'chorki1.xlsx');
+        $i = 0;
+        $counter = 0;
+        foreach ($data[0] as $item) {
+            if ($i != 0) {
+                if ($item[0] != null) {
+
+                    $array = [
+                        'chorki_coupon' => $item[0],
+                    ];
+                    try {
+                        GuestCoupon::create($array);
+                        $counter++;
+                    } catch (\Exception $exception) {
+                        //return $exception->getMessage();
+                    }
+                } else {
+                    continue;
+                }
+            }
+            $i++;
+        }
+        return "ok" . $counter;*/
 
 
-        return Excel::import(new UsersImport, 'users.xlsx');
+        /* For Prothom Alo*/
+        //$data = Excel::toArray(new UsersImport, 'chorki1.xlsx');
+        $data = Excel::toArray(new UsersImport, 'palo2.csv');
+        $i = 0;
+        $counter = 0;
+        foreach ($data[0] as $item) {
+            if ($i != 0) {
+                $is_exist = GuestCoupon::whereNull("prothomalo_coupon")->first();
+                if (is_null($is_exist)) {
+                    continue;
+                }
+                if ($item[0] != null) {
 
-        return 'All good!';
+                    $array = [
+                        'prothomalo_coupon' => $item[0],
+                    ];
+                    try {
+                        GuestCoupon::where("id", $is_exist->id)->update($array);
+                        $counter++;
+                    } catch (\Exception $exception) {
+                       // return $exception->getMessage();
+                    }
+                } else {
+                    continue;
+                }
+
+
+            }
+            $i++;
+        }
+
+
+        return 'All good!'. $counter;
 
         //return view('mail');
     }
@@ -91,7 +141,7 @@ class ExcelController extends Controller
     public function ticket()
     {
 
-      return view("common.profile.ticket");
+        return view("common.profile.ticket");
 
 
     }

@@ -2,9 +2,12 @@
 
 
 use App\Models\Department;
+use App\Models\Image;
 use App\Models\InOutMonitor;
 use App\Models\Leave;
 use App\Models\LoginHistory;
+use App\Models\Post;
+use App\Models\Video;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Http;
@@ -177,6 +180,30 @@ function getTextToUrl($link)
 
 }
 
+function getPost()
+{
+
+
+    return Post::orderBy('created_at', "DESC")->get();
+
+}
+
+function getVideo()
+{
+
+
+    return Video::orderBy('created_at', "DESC")->get();
+
+}
+
+function getImage()
+{
+
+
+    return Image::orderBy('created_at', "DESC")->get();
+
+}
+
 
 function getPosition($id)
 {
@@ -200,9 +227,9 @@ function getEnglishName($name)
     return $string[0];
 }
 
-function smsSend($phone_number, $name)
+function smsSendOld($phone_number, $name)
 {
-    return 1;
+    //return 1;
     $message = "Dear " . $name . ', warm welcome to Pathok Somabesh !! A blast of foorti is waiting for you.';
     try {
         return $response = Http::post('https://vas.banglalink.net/sendSMS/sendSMS?msisdn=' . $phone_number . '&message=' . $message . '&userID=BMMuseumAPI&passwd=BMMuseumAPI@134&sender=B M Museum', [
@@ -215,6 +242,54 @@ function smsSend($phone_number, $name)
     } catch (\Exception $exception) {
         return $exception->getMessage();
     }
+}
+
+function sendSms($number, $message)
+{
+
+    $message = ($message);
+
+    $url = "https://smsc.ekshop.gov.bd/externalApi?passkey=09978bg45SD3SWQ&smsText=" . $message . "&client=motiur&number=" . $number;
+    //$url = 'https://vas.banglalink.net/sendSMS/sendSMS?msisdn=' . $number . '&message=' . $message . '&userID=BMMuseumAPI&passwd=BMMuseumAPI@134&sender=B';
+
+    $client = new GuzzleHttp\Client();
+    $res = $client->get($url);
+    return $res->getStatusCode();
+    return $url;
+
+
+}
+
+function convertBanglatoUnicode($BanglaText)
+{
+    $unicodeBanglaTextForSms = strtoupper(bin2hex(iconv('UTF-8', 'UCS-2BE', $BanglaText)));
+    return $unicodeBanglaTextForSms;
+}
+
+
+function paloMessage($phonenum, $content)
+{
+    $content = convertBanglatoUnicode($content);
+
+    $user = "PROTHOMALOOTP";
+    $pass = "69A966o>";
+    $sid = "PROTHOMALOOTPBNG";
+    $refere_id = rand(1000000000, 9999999999);
+    $crl = curl_init();
+    curl_setopt($crl, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($crl, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_setopt($crl, CURLOPT_HEADER, 0);
+    //curl_setopt($crl,CURLOPT_RETURNTRANSFER,TRUE);
+    curl_setopt($crl, CURLOPT_RETURNTRANSFER, 1);
+    //curl_setopt($crl,CURLOPT_POST,TRUE);
+    curl_setopt($crl, CURLOPT_POST, 1);
+    $url = "http://sms.sslwireless.com/pushapi/dynamic/server.php";
+    $param = "user=$user&pass=$pass&sms[0][0]=$phonenum&sms[0][1]=" . urlencode($content) . "&sms[0][2]=$refere_id&sid=$sid";
+    curl_setopt($crl, CURLOPT_URL, $url);
+    curl_setopt($crl, CURLOPT_POSTFIELDS, $param);
+    $response = curl_exec($crl);
+    curl_close($crl);
+    return $response;
 }
 
 ?>

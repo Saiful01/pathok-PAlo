@@ -29,15 +29,12 @@
                         <div class=" mb-2">
                             <label class="form-label" for="example-select-floating">Post Title</label>
                             <input type="text" class="form-control" id="post_title" name="post_title"
-                                   placeholder="Title">
+                                   placeholder="Title" required>
                         </div>
-
-
-                        <div class="mb-2">
-                            <label class="form-label" for="example-select-floating">Details</label>
-                            <textarea type="text" class="form-control" id="summernote" name="post_details"
-                                      placeholder="Details" rows="10"></textarea>
-
+                        <div class=" mb-2">
+                            <label class="form-label" for="example-select-floating">Link</label>
+                            <input type="text" class="form-control" id="post_title" name="link"
+                                   placeholder="News Link" required>
                         </div>
 
                     </div>
@@ -52,35 +49,6 @@
 
                         <div class="mb-2">
                             <img src="/images/preview.jpg" id="imagePreview" class="w-100 img-thumbnail" style="max-height: 275px;"/>
-                        </div>
-
-                        <div class="mb-2">
-                            <label class="form-label" for="example-select-floating">Category</label>
-                            <select class="form-select" id="example-select-floating" name="category_id"
-                                    aria-label="Floating label select example">
-                                <option selected="">Select an option</option>
-                                @foreach($result as $item)
-                                    <option value="{{$item->id}}">{{$item->category_title}}</option>
-                                @endforeach
-                            </select>
-
-                        </div>
-
-                        <div class="mb-4">
-                            <label class="form-label">Featured Post</label>
-                            <div class="space-x-2">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="is_featured" name="pin_post" value="1">
-                                    <label class="form-check-label" for="is_featured">Yes</label>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <label class="form-label">Tags</label>
-                            <textarea type="text" class="form-control" name="tags"
-                                      placeholder="Tags" rows="3"></textarea>
                         </div>
 
                         <div class="mb-2">
